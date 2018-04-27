@@ -1,3 +1,4 @@
+/*https://www.hackerrank.com/challenges/kruskalmstrsub/problem*/
 #include "bits/stdc++.h"
 using namespace std;
 

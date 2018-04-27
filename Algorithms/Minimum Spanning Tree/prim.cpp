@@ -1,3 +1,4 @@
+/*https://www.hackerrank.com/challenges/kruskalmstrsub/problem*/
 #include "bits/stdc++.h"
 using namespace std;
 const int MAXN = 1e5+5;
