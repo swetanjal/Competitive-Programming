@@ -12,7 +12,7 @@ set < pair < long long , int > > S;
 int main()
 {
 	ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+	cin.tie(NULL);
 	cin>>T;
 	while(T--){
 		cin>>N>>M;
