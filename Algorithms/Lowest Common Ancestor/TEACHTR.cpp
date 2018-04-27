@@ -1,3 +1,4 @@
+/* https://www.codechef.com/problems/TEACHTR */
 #include "bits/stdc++.h"
 using namespace std;
 const int MAXLOG = 21; 
