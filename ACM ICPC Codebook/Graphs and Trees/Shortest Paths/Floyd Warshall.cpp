@@ -30,9 +30,9 @@ public:
     void computeShortestPaths()
     {
         for(int k = 1; k <= N; k++)
-		    for(int i = 1; i <= N; i++)
-			    for(int j = 1; j <= N; j++)
-				    DP[i][j] = min(DP[i][j], DP[i][k] + DP[k][j]);
+            for(int i = 1; i <= N; i++)
+                for(int j = 1; j <= N; j++)
+                    DP[i][j] = min(DP[i][j], DP[i][k] + DP[k][j]);
     }
 };
 // End of template for Floyd Warshall
