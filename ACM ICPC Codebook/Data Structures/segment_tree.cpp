@@ -8,11 +8,11 @@
     6. Range Update : obj.range_update(1, 0, N - 1, l, r, val)
 */
 const int segtreeMAXN = 1e6 + 5; // Modify this line to change maximum number of elements in array
-int tree_min[4 * segtreeMAXN];
-int tree_max[4 * segtreeMAXN];
-int tree_sum[4 * segtreeMAXN];
-int lazy[4 * segtreeMAXN];
-int segtreeA[segtreeMAXN];
+long long int tree_min[4 * segtreeMAXN];
+long long int tree_max[4 * segtreeMAXN];
+long long int tree_sum[4 * segtreeMAXN];
+long long int lazy[4 * segtreeMAXN];
+long long int segtreeA[segtreeMAXN];
 
 
 class SegmentTree{
@@ -30,9 +30,7 @@ public:
     {
         if(lazy[node]!=0)
 	    {
-		    tree_sum[node] += ((high - low + 1) * 1LL * lazy[node]);
-            tree_min[node] += lazy[node];
-            tree_max[node] += lazy[node];
+		    tree_sum[node] += ((high - low + 1) * 1LL * lazy[node]); tree_min[node] += lazy[node]; tree_max[node] += lazy[node];
 		    if(low != high)
 		    {
 			    lazy[(2 * node)] += lazy[node];
@@ -85,7 +83,7 @@ public:
         tree_max[node] = max(tree_max[2 * node], tree_max[2 * node + 1]);
         tree_sum[node] = tree_sum[2 * node] + tree_sum[2 * node + 1];
     }
-    int query_minimum(int node, int low, int high, int qlow, int qhigh)
+    long long int query_minimum(int node, int low, int high, int qlow, int qhigh)
     {
         propagate(low, high, node);
         if(qlow <= low && high <= qhigh)
@@ -97,7 +95,7 @@ public:
         long long int m2 = query_minimum(2 * node + 1, mid + 1, high, qlow, qhigh);
         return min(m1, m2);
     }
-    int query_maximum(int node, int low, int high, int qlow, int qhigh)
+    long long int query_maximum(int node, int low, int high, int qlow, int qhigh)
     {
         propagate(low, high, node);
         if(qlow <= low && high <= qhigh)
@@ -109,7 +107,7 @@ public:
         long long int m2 = query_maximum(2 * node + 1, mid + 1, high, qlow, qhigh);
         return max(m1, m2);
     }
-    int query_sum(int node, int low, int high, int qlow, int qhigh)
+    long long int query_sum(int node, int low, int high, int qlow, int qhigh)
     {
         propagate(low, high, node);
         if(qlow <= low && high <= qhigh)
