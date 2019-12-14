@@ -28,18 +28,18 @@ public:
     }
     void propagate(int low, int high, int node)
     {
-        if(lazy[node]!=0)
-	    {
+        if(lazy[node] != 0)
+        {
             tree_max[node] += lazy[node];
             tree_min[node] += lazy[node];
             tree_sum[node] += ((high - low + 1) * 1LL * lazy[node]);
-		    if(low != high)
-		    {
-			    lazy[(2 * node)] += lazy[node];
-			    lazy[(2 * node) + 1] += lazy[node];
-		    }
-		    lazy[node]=0;
-	    }
+            if(low != high)
+            {
+                lazy[2 * node] += lazy[node];
+                lazy[2 * node + 1] += lazy[node];
+            }
+            lazy[node] = 0;
+        }
     }
     void point_update(int node, int low, int high, int idx, long long int val)
     {
