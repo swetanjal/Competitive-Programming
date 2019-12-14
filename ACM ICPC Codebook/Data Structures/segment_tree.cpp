@@ -30,8 +30,9 @@ public:
     {
         if(lazy[node]!=0)
 	    {
-		    tree_sum[node] += ((high - low + 1) * 1LL * lazy[node]);
-            tree_min[node] += lazy[node]; tree_max[node] += lazy[node];
+            tree_sum[node] += ((high - low + 1) * 1LL * lazy[node]);
+            tree_max[node] += lazy[node];
+            tree_min[node] += lazy[node];
 		    if(low != high)
 		    {
 			    lazy[(2 * node)] += lazy[node];
