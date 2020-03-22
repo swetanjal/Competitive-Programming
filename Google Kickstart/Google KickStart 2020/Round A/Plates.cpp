@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
-const long long inf = -1e6;
-const int MAXN = 50;
+const long long inf = -1e18;
+const int MAXN = 55;
 int A[MAXN][MAXN];
 int T, N, K, P;
 long long int DP[MAXN][MAXN * MAXN];
@@ -12,7 +12,7 @@ long long int rec(int idx, int rem){
         return 0;
     if(idx == N)
         return inf;
-    if(DP[idx][rem] != -1000000000000000)
+    if(DP[idx][rem] != -1)
         return DP[idx][rem];
     long long s = 0;
     DP[idx][rem] = rec(idx + 1, rem);
@@ -30,7 +30,7 @@ int main()
         cin >> N >> K >> P;
         for(int i = 0; i <= N; ++i)
             for(int j = 0; j <= P; ++j)
-                DP[i][j] = -1000000000000000;
+                DP[i][j] = -1;
         for(int i = 0; i < N; ++i){
             for(int j = 0; j < K; ++j)
                 cin >> A[i][j];
